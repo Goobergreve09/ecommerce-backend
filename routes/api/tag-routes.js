@@ -1,47 +1,43 @@
-const router = require('express').Router();
-const { Tag, Product, ProductTag } = require('../../models');
+const router = require("express").Router();
+const { Tag, Product, ProductTag } = require("../../models");
 
 // The `/api/tags` endpoint
 
-router.get('/', async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     // find all tags
     const tagData = await Tag.findAll({
-      include: [
-        { model: Product, as: 'products' },
-    
-      ],
+      include: [{ model: Product, as: "products" }],
     });
 
     res.json(tagData);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Internal Server Error' });
+    res.status(500).json({ error: "Internal Server Error" });
   }
 });
 
-
-router.get('/:id', async (req, res) => {
+router.get("/:id", async (req, res) => {
   try {
     const tagId = req.params.id;
 
     const tagData = await Tag.findOne({
       where: { id: tagId },
-      include: [{ model: Product, as: 'products', through: ProductTag }],
-  });
+      include: [{ model: Product, as: "products", through: ProductTag }],
+    });
 
     if (!tagData) {
-      return res.status(404).json({ message: 'Tag not found' });
+      return res.status(404).json({ message: "Tag not found" });
     }
 
     res.json(tagData);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Internal Server Error' });
+    res.status(500).json({ error: "Internal Server Error" });
   }
 });
 
-router.post('/', async (req, res) => {
+router.post("/", async (req, res) => {
   try {
     const { tag_name } = req.body;
 
@@ -50,11 +46,11 @@ router.post('/', async (req, res) => {
     res.status(201).json(newTag);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Internal Server Error' });
+    res.status(500).json({ error: "Internal Server Error" });
   }
 });
 
-router.put('/:id', async (req, res) => {
+router.put("/:id", async (req, res) => {
   try {
     const tagId = req.params.id;
     const { tag_name } = req.body;
@@ -69,17 +65,17 @@ router.put('/:id', async (req, res) => {
     );
 
     if (updatedTag[0] === 0) {
-      return res.status(404).json({ message: 'Tag not found' });
+      return res.status(404).json({ message: "Tag not found" });
     }
 
-    res.status(200).json({ message: 'Tag updated successfully' });
+    res.status(200).json({ message: "Tag updated successfully" });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Internal Server Error' });
+    res.status(500).json({ error: "Internal Server Error" });
   }
 });
 
-router.delete('/:id', async (req, res) => {
+router.delete("/:id", async (req, res) => {
   try {
     const tagId = req.params.id;
 
@@ -90,13 +86,13 @@ router.delete('/:id', async (req, res) => {
     });
 
     if (deletedTagRows === 0) {
-      return res.status(404).json({ message: 'Tag not found' });
+      return res.status(404).json({ message: "Tag not found" });
     }
 
-    res.status(204).end(); 
+    res.status(204).end();
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Internal Server Error' });
+    res.status(500).json({ error: "Internal Server Error" });
   }
 });
 
