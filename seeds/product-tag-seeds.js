@@ -53,9 +53,7 @@ const productTagData = [
 
 const seedProductTags = async () => {
   try {
-    console.log('Product Tag Data:', productTagData);
     await ProductTag.bulkCreate(productTagData);
-    console.log('\n----- PRODUCT TAGS SEEDED -----\n');
   } catch (error) {
     console.error('Error during seeding:', error);
   }
