@@ -13,7 +13,7 @@ Internet retail, also known as **e-commerce**, plays a significant role within t
 
 1. [Description](#description)  
 2. [How to Install](#installation)  
-3. [How to Use](#usage)  
+3. [Demonstration](#demonstration)  
 4. [Licensing](#license)  
 5. [Testing](#tests)  
 6. [Contact Me](#questions)
@@ -32,14 +32,29 @@ In order to run this application via the backend for manager or developers first
 
 **5.** Lastly in order to efficiently manipulate data in the database we used NPM's sequelize. To install this package simply type `npm install sequelize` into the CLI.
 
-If everything is installed then we are ready to rock and roll.
-## Usage
+Your package.json file should contain the following dependencies:
 
-yes
+![Capture](https://github.com/Goobergreve09/employee-manager-backend/assets/143923830/7b76634b-be84-4d62-bf75-684ec39e4da6)
+
+If everything is installed then we are ready to rock and roll.
+
+## Demonstration
+You can view a short video demonstration via youtube by clicking 'Demo Link' below:
+
+[Demo Link](https://www.youtube.com/watch?v=w1I4rMTQqqA)
 
 ## Contributions
 
-yes
+Special thanks for the knowledge and information to:
+
+* [Node.js Documentation](https://nodejs.org/api/esm.html)
+
+* [Mysql2 Package Documentation](https://www.npmjs.com/package/mysql2)
+
+* [MSU EDX programming bootcamp for Starter Code](https://bootcamp.msu.edu/coding/)
+
+* [ReadME Generator](https://github.com/Goobergreve09/read-me-generator)
+
 
 
 ## License
@@ -54,7 +69,13 @@ The software license selected for this application *is as follows*:
 
 ## Tests
 
-insomnia
+In order to run and test the usage of this you must have [**Insomnia**](https://insomnia.rest/download) downloaded as stated above. Within insomnia you can test the competency of your backend application by connecting to the local host via the port you provided. Here, you can test the routes being created using GET, PUT, POST, and DELETE. Here are a few example images of testing via Insomnia. 
+
+![Capture10](https://github.com/Goobergreve09/employee-manager-backend/assets/143923830/f7e6b616-1f26-450e-bce2-c41bfbd622d6)
+
+![Capture30](https://github.com/Goobergreve09/employee-manager-backend/assets/143923830/8c14c63f-3d97-4c2a-85c0-fdaf3f4a7153)
+
+![3450](https://github.com/Goobergreve09/employee-manager-backend/assets/143923830/52feba18-aa9c-4ed2-aee0-7644606eb2d5)
 
 ## Questions
 
