@@ -3,13 +3,13 @@ const { Tag, Product, ProductTag } = require('../../models');
 
 // The `/api/tags` endpoint
 
-router.get('/api/tags', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     // find all tags
     const tagData = await Tag.findAll({
       include: [
-        { model: Product },
-        { model: ProductTag },
+        { model: Product, as: 'products' },
+    
       ],
     });
 
@@ -27,8 +27,8 @@ router.get('/:id', async (req, res) => {
 
     const tagData = await Tag.findOne({
       where: { id: tagId },
-      include: [{ model: Product, through: ProductTag }],
-    });
+      include: [{ model: Product, as: 'products', through: ProductTag }],
+  });
 
     if (!tagData) {
       return res.status(404).json({ message: 'Tag not found' });
